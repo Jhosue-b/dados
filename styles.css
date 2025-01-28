@@ -1,0 +1,84 @@
+:root {
+    --dado-size: 100px;
+    --perspective: 1000px;
+    --font-size: 3rem;
+    --face-depth: calc(var(--dado-size) / 2);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dado {
+    width: var(--dado-size);
+    height: var(--dado-size);
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    transition: transform 1s;
+    position: relative;
+    perspective: var(--perspective);
+}
+
+.cara {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size);
+    backface-visibility: hidden;
+    background-color: #fff;
+    border: 1px solid #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cara1 { transform: rotateY(0deg) translateZ(var(--face-depth)); }
+.cara2 { transform: rotateY(90deg) translateZ(var(--face-depth)); }
+.cara3 { transform: rotateY(180deg) translateZ(var(--face-depth)); }
+.cara4 { transform: rotateY(-90deg) translateZ(var(--face-depth)); }
+.cara5 { transform: rotateX(90deg) translateZ(var(--face-depth)); }
+.cara6 { transform: rotateX(-90deg) translateZ(var(--face-depth)); }
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+/* Media Queries para diseño responsivo */
+
+@media (max-width: 768px) {
+    :root {
+        --dado-size: 80px;
+        --font-size: 2.5rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --dado-size: 60px;
+        --font-size: 2rem;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
