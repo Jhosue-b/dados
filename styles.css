@@ -18,16 +18,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    perspective: var(--perspective);
 }
 
 .dado {
     width: var(--dado-size);
     height: var(--dado-size);
     transform-style: preserve-3d;
-    transform: rotateX(0deg) rotateY(0deg);
     transition: transform 1s;
     position: relative;
-    perspective: var(--perspective);
 }
 
 .cara {
@@ -58,7 +57,6 @@ button {
 }
 
 /* Media Queries para diseño responsivo */
-
 @media (max-width: 768px) {
     :root {
         --dado-size: 80px;
